@@ -1,6 +1,9 @@
 name: Update README with .sh scripts list
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -59,3 +62,6 @@ jobs:
         commit_message: "Update README with latest .sh scripts list"
         branch: main
         file_pattern: README.md
+        commit_user_name: s7net
+        commit_user_email: s7net@users.noreply.github.com
+        token: ${{ secrets.PAT_TOKEN }}
