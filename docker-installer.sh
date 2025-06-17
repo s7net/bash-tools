@@ -30,4 +30,4 @@ sudo apt update -qq
 echo "✅ Installing Docker Compose..."
 sudo apt install -y -qq docker-compose
 
-echo "🎉 All done!"
+echo "🎉 All done! "
