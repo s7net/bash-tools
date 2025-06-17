@@ -4,11 +4,11 @@
 ### Scripts:
 ### dargah :
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/dargah.sh)
+bash <(curl -Ls https://cdn.jsdelivr.net/gh/s7net/bash-tools@main/dargah.sh)
 ```
 
 ### docker-installer :
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/docker-installer.sh)
+bash <(curl -Ls https://cdn.jsdelivr.net/gh/s7net/bash-tools@main/docker-installer.sh)
 ```
 
