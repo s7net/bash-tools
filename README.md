@@ -12,3 +12,8 @@ bash <(curl -Ls https://cdn.jsdelivr.net/gh/s7net/bash-tools@main/dargah.sh)
 bash <(curl -Ls https://cdn.jsdelivr.net/gh/s7net/bash-tools@main/docker-installer.sh)
 ```
 
+### iran-fix-mirrors :
+```bash
+bash <(curl -Ls https://cdn.jsdelivr.net/gh/s7net/bash-tools@main/iran-fix-mirrors.sh)
+```
+
