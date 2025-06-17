@@ -17,3 +17,8 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/docker-i
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/iran-fix-mirrors.sh)
 ```
 
+### marzban-restore :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/marzban-restore.sh)
+```
+
