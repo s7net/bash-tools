@@ -36,12 +36,12 @@ jobs:
         echo "# bash-tools" > new_readme_section.md
         echo "" >> new_readme_section.md
         echo "### Scripts:" >> new_readme_section.md
-
+    
         while IFS= read -r file; do
           base=$(basename "$file" .sh)
           echo "### $base :" >> new_readme_section.md
           echo '```bash' >> new_readme_section.md
-          echo "bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/$file)" >> new_readme_section.md
+          echo "bash <(curl -Ls https://cdn.jsdelivr.net/gh/s7net/bash-tools@main/$file)" >> new_readme_section.md
           echo '```' >> new_readme_section.md
           echo "" >> new_readme_section.md
         done <<< "${{ steps.list_scripts.outputs.files }}"
