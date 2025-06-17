@@ -9,3 +9,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/refs/heads/ma
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/refs/heads/main/docker-installer.sh)
 ```
+
+<!-- scripts start -->
+<!-- scripts end -->
