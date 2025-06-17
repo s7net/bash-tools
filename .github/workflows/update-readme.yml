@@ -1,7 +1,7 @@
 name: Update README with .sh scripts list
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -15,24 +15,25 @@ jobs:
       id: list_scripts
       run: |
         FILES=$(git ls-files '*.sh')
-        echo "files=$FILES" >> $GITHUB_OUTPUT
+        echo "files<<EOF" >> $GITHUB_OUTPUT
+        echo "$FILES" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
 
     - name: Generate new README section
       id: gen_readme
       run: |
-        echo "Generating README section..."
         echo "# bash-tools" > new_readme_section.md
         echo "" >> new_readme_section.md
         echo "### Scripts:" >> new_readme_section.md
-        echo '```bash' >> new_readme_section.md
 
-        while read -r file; do
+        while IFS= read -r file; do
           base=$(basename "$file" .sh)
+          echo "### $base :" >> new_readme_section.md
+          echo '```bash' >> new_readme_section.md
           echo "bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/$file)" >> new_readme_section.md
+          echo '```' >> new_readme_section.md
           echo "" >> new_readme_section.md
         done <<< "${{ steps.list_scripts.outputs.files }}"
-
-        echo '```' >> new_readme_section.md
 
     - name: Update README.md
       run: |
@@ -44,10 +45,10 @@ jobs:
           echo "<!-- scripts end -->" >> README.md
         else
           awk '
-            BEGIN {inblock=0}
-            /<!-- scripts start -->/ {print; system("cat new_readme_section.md"); inblock=1; next}
-            /<!-- scripts end -->/ {inblock=0; next}
-            inblock==0 {print}
+          BEGIN {inblock=0}
+          /<!-- scripts start -->/ {print; system("cat new_readme_section.md"); inblock=1; next}
+          /<!-- scripts end -->/ {inblock=0; next}
+          inblock==0 {print}
           ' README.md > README.new.md
           mv README.new.md README.md
         fi
