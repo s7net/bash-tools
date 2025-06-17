@@ -13,6 +13,14 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+
+    - name: Setup Git for pushing with PAT
+      run: |
+        git config user.name "s7net"
+        git config user.email "s7net@users.noreply.github.com"
+        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/s7net/bash-tools.git
 
     - name: List .sh files in repo root
       id: list_scripts
@@ -56,12 +64,11 @@ jobs:
           mv README.new.md README.md
         fi
 
-    - name: Commit and push changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "Update README with latest .sh scripts list"
-        branch: main
-        file_pattern: README.md
-        commit_user_name: s7net
-        commit_user_email: s7net@users.noreply.github.com
-        token: ${{ secrets.PAT_TOKEN }}
+    - name: Commit changes
+      run: |
+        git add README.md
+        git diff --cached --quiet && echo "No changes to commit" || git commit -m "Update README with latest .sh scripts list"
+
+    - name: Push changes
+      run: |
+        git push origin main
