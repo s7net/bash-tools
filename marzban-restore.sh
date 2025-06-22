@@ -54,7 +54,7 @@ if [ -z "$SQL_FILE" ]; then
 fi
 
 echo "🗃️ Restoring database using previous credentials..."
-MYSQL_CONTAINER=$(docker ps -qf "name=marzban_mysql")
+MYSQL_CONTAINER=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | grep -Ei 'mysql|mariadb' | awk '{print $1}' | head -n 1)
 docker cp "$SQL_FILE" "$MYSQL_CONTAINER":/restore.sql
 docker exec -i "$MYSQL_CONTAINER" sh -c "mysql -u$DB_USER -p$DB_PASS $DB_NAME < /restore.sql"
 
