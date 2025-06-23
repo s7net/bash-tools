@@ -47,6 +47,8 @@ rm -rf /var/lib/marzban
 mv "$TMP_DIR/opt/marzban" /opt/
 mv "$TMP_DIR/var/lib/marzban" /var/lib/
 
+marzban restart
+
 SQL_FILE=$(find "$TMP_DIR" -name '*.sql' | head -n 1)
 if [ -z "$SQL_FILE" ]; then
   echo "❌ SQL file not found in backup."
