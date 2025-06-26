@@ -12,6 +12,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/dargah.s
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/docker-installer.sh)
 ```
 
+### ftg2ssh :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/ftg2ssh.sh)
+```
+
 ### grafana-prometheus-installer :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/grafana-prometheus-installer.sh)
