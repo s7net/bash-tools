@@ -35,11 +35,28 @@ while true; do
     if [[ "$FROM_ID" == "$ALLOWED_ID" && -n "$FILE_ID" ]]; then
       echo "📥 File received: $FILE_NAME"
 
-      FILE_PATH=$(curl -s "$API/getFile?file_id=$FILE_ID" | jq -r '.result.file_path')
+      # Get file path and handle errors
+      FILE_INFO=$(curl -s "$API/getFile?file_id=$FILE_ID")
+      if ! echo "$FILE_INFO" | jq -e '.ok' &> /dev/null; then
+        echo "❌ Error getting file path: $(echo "$FILE_INFO" | jq -r '.description')"
+        continue
+      fi
 
-      curl -s -o "$FILE_NAME" "https://api.telegram.org/file/bot$TOKEN/$FILE_PATH"
-      echo "✅ File downloaded and saved as: $FILE_NAME"
-      exit 0
+      FILE_PATH=$(echo "$FILE_INFO" | jq -r '.result.file_path')
+      if [[ -z "$FILE_PATH" ]]; then
+        echo "❌ File path is empty!"
+        continue
+      fi
+
+      # Download the actual file
+      DOWNLOAD_URL="https://api.telegram.org/file/bot$TOKEN/$FILE_PATH"
+      if curl -f -L -o "$FILE_NAME" "$DOWNLOAD_URL"; then
+        echo "✅ File downloaded and saved as: $FILE_NAME"
+        exit 0
+      else
+        echo "❌ Download failed! Removed invalid file."
+        rm -f "$FILE_NAME"
+      fi
     fi
   done
 
