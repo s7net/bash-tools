@@ -35,8 +35,10 @@ if [ ! -f "$ENV_FILE" ]; then
   exit 3
 fi
 
-DB_USER=$(grep MYSQL_USER "$ENV_FILE" | grep -v ROOT | cut -d= -f2)
-DB_PASS=$(grep MYSQL_PASSWORD "$ENV_FILE" | cut -d= -f2)
+# DB_USER=$(grep MYSQL_USER "$ENV_FILE" | grep -v ROOT | cut -d= -f2)
+DB_USER=root
+# DB_PASS=$(grep MYSQL_PASSWORD "$ENV_FILE" | cut -d= -f2)
+DB_PASS=$(grep MYSQL_ROOT_PASSWORD "$ENV_FILE" | cut -d= -f2)
 DB_NAME=$(grep MYSQL_DATABASE "$ENV_FILE" | cut -d= -f2)
 
 # Find SQL file from backup
