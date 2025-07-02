@@ -2,11 +2,6 @@
 # bash-tools
 
 ### Scripts:
-### dargah :
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/dargah.sh)
-```
-
 ### docker-installer :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/docker-installer.sh)
@@ -25,6 +20,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/grafana-
 ### backup :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/backup.sh)
+```
+
+### dargah :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/dargah.sh)
 ```
 
 ### iran-fix-mirrors :
