@@ -17,14 +17,14 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/ftg2ssh.
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/grafana-prometheus-installer.sh)
 ```
 
-### backup :
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/backup.sh)
-```
-
 ### dargah :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/dargah.sh)
+```
+
+### host-backup :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/host-backup.sh)
 ```
 
 ### iran-fix-mirrors :
