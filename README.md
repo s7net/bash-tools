@@ -22,6 +22,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/ftg2ssh.
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/grafana-prometheus-installer.sh)
 ```
 
+### backup :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/backup.sh)
+```
+
 ### iran-fix-mirrors :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/iran-fix-mirrors.sh)
