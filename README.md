@@ -27,6 +27,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/host-backup.sh)
 ```
 
+### ns-testing :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/ns-testing.sh)
+```
+
 ### iran-fix-mirrors :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/iran-fix-mirrors.sh)
