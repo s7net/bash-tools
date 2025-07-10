@@ -17,6 +17,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/ftg2ssh.
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/grafana-prometheus-installer.sh)
 ```
 
+### create-backup-link :
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/create-backup-link.sh)
+```
+
 ### dargah :
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/s7net/bash-tools/main/hosting/dargah.sh)
