@@ -5,7 +5,7 @@ clear
 read -p "Enter server folder (e.g. lh420): " s
 read -p "Enter backup username (e.g. firfirir): " u
 
-mapfile -t files < <(find /home/$s/weekly*/ -type f -name "*$u*.tar.zst" 2>/dev/null)
+mapfile -t files < <(find /home/$s/weekly*/ -type f -name "*$u*" 2>/dev/null)
 
 [ ${#files[@]} -eq 0 ] && echo "❌ No backup files found." && exit 1
 
